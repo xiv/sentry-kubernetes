@@ -14,7 +14,7 @@ RUN apt-get update && \
     useradd --system --user-group app
 
 # Install dependencies from build image
-COPY --from=build-image /usr/local/lib/python3.7/site-packages/ /usr/local/lib/python3.7/site-packages/
+COPY --from=build-image /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
 COPY sentry-kubernetes.py ./
 USER app
 CMD [ "python", "./sentry-kubernetes.py" ]
