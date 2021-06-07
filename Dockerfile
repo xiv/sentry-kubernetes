@@ -1,12 +1,12 @@
 # Build environment has gcc and develop header files.
 # The installation is copied to the smaller runtime container.
-FROM python:3.7 AS build-image
+FROM python:3.8 AS build-image
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Start runtime container
-FROM python:3.7-slim
+FROM python:3.8-slim
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y libyaml-0-2 && \
